@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INST377 - Lab 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #add8e6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            min-height: 100vh;
+        }
+        h1 {
+            color: black;
+            text-align: center;
+            width: 100%;
+            margin: 0 auto 20px;
+        }
+        .container {
+            background-color: #6a1b9a;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px 0;
+            width: 600px;
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        input[type="text"], button {
+            flex-grow: 1;
+            padding: 10px;
+            margin: 0 5px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: black;
+        }
+        button {
+            background-color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #eee;
+        }
+        label {
+            color: white;
+            flex-basis: 100px;
+            padding-right: 10px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>INST377 - Lab 4</h1>
+    <div class="container">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <button onclick="alertName()">Alert Me</button>
+    </div>
+
+    <div class="container">
+        <button onclick="changeColor()">Change Color</button>
+    </div>
+
+    <div class="container">
+        <label for="text">Text Tester:</label>
+        <input type="text" id="text" required>
+        <button onclick="addText()">Add Text</button>
+    </div>
+
+<script>
+    function alertName() {
+        var name = document.getElementById('name').value;
+        if (name) alert('Hi ' + name + '!');
+    }
+
+    function changeColor() {
+        var body = document.body;
+        var currentColor = body.style.backgroundColor;
+        body.style.backgroundColor = currentColor === 'rgb(173, 216, 230)' || currentColor === '' ? '#90ee90' : '#add8e6';
+    }
+
+    function addText() {
+        var text = document.getElementById('text').value;
+        var heading = document.querySelector('h1');
+        if(text) {
+            heading.textContent += " " + text;
+        }
+    }
+</script>
+</body>
+</html>
